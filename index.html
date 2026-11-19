@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#173b32"><title>Mission Évangélique Maison de Prière</title><style id="css">
+:root{--green:#173b32;--gold:#d6b56d;--cream:#f7f5ef;--ink:#1f2925;--muted:#65716b;--line:#e6e3da;--card:#fff;--soft:#e7eee8;--gold-d:#98763b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--cream:#101a16;--ink:#e9efeb;--muted:#a3b0a9;--line:#2a3a33;--card:#17241f;--soft:#1f3329;--gold-d:#d6b56d}}
+:root[data-theme="dark"]{--cream:#101a16;--ink:#e9efeb;--muted:#a3b0a9;--line:#2a3a33;--card:#17241f;--soft:#1f3329;--gold-d:#d6b56d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.6}
+button,input,textarea,select{font:inherit;color:inherit}
+.site-header{display:flex;gap:16px;align-items:center;padding:22px max(18px,calc((100% - 1000px)/2));background:var(--green);color:#fff}
+.logo{flex:0 0 64px;height:64px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-size:28px;overflow:hidden;background:#fff}
+.logo img{width:100%;height:100%;object-fit:cover}
+h1{font-size:clamp(14px,2.4vw,20px);line-height:1.35;margin:0;letter-spacing:.03em}
+.sub{margin:0 0 4px;color:var(--gold);font-size:13px}
+.container{width:min(100% - 28px,940px);margin:24px auto 48px}
+.hero{border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#214d40,#102e27);color:#fff;display:grid}
+.hero img{width:100%;max-height:440px;object-fit:cover;object-position:50% 28%;display:block}
+.hero .txt{padding:30px}
+.hero h2{margin:0 0 10px;font-size:clamp(26px,5vw,40px);line-height:1.15}
+.hero p{margin:0;max-width:640px;color:#dfe9e3}
+h2.sec{font-size:22px;margin:34px 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.feature{display:flex;gap:16px}
+.ico{flex:0 0 48px;height:48px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:24px}
+.feature h3{margin:0 0 6px;font-size:21px}
+.feature p,.card p{margin:0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.grid h3{margin:6px 0 4px;font-size:17px}
+.grid small{display:block;margin-top:8px;color:var(--gold-d);font-weight:700}
+footer{text-align:center;padding:22px 16px;background:var(--soft);color:var(--ink);font-size:13px}
+footer p{margin:0 0 4px;font-weight:700}
+.adminbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--gold);color:#2a1f08;padding:8px 14px;display:flex;gap:10px;align-items:center;justify-content:space-between;font-size:14px;font-family:system-ui,sans-serif}
+.adminbar b{font-weight:700}
+.btn{border:0;border-radius:10px;padding:10px 14px;background:var(--green);color:#fff;cursor:pointer;font-family:system-ui,sans-serif;font-size:14px}
+.btn.alt{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.btn.del{background:transparent;color:#b3261e;border:1px solid #b3261e55;padding:6px 10px}
+.btn:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #2f7ec7;outline-offset:2px}
+#admin{display:none;margin:0 0 28px;font-family:system-ui,sans-serif}
+#admin.open{display:block}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{padding:9px 13px;border-radius:30px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:14px}
+.tabs button[aria-selected=true]{background:var(--green);color:#fff;border-color:var(--green)}
+.panel{display:none}.panel.on{display:block}
+label{display:block;font-size:13px;color:var(--muted);margin:12px 0 4px}
+input,textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--cream)}
+textarea{min-height:96px;resize:vertical}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:end}
+.row>*{flex:1 1 120px}
+.prev{width:84px;height:84px;border-radius:12px;object-fit:cover;border:1px solid var(--line);background:var(--soft)}
+.tbl{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+.tbl th,.tbl td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}
+.tbl td.n,.tbl th.n{text-align:right;font-variant-numeric:tabular-nums}
+.wrap{overflow-x:auto}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.kpi{background:var(--soft);border-radius:12px;padding:12px}.kpi small{color:var(--muted)}.kpi div{font-size:20px;font-weight:700}
+.msg{font-size:13px;color:var(--gold-d);min-height:20px;margin-top:8px}
+.grp{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:12px}
+#qr svg{width:210px;height:210px;background:#fff;padding:10px;border-radius:12px}
+#posters{margin:0 0 4px}.stage{position:relative;width:min(100%,560px);aspect-ratio:1/1;margin:0 auto;background:var(--soft);border-radius:16px;overflow:hidden;border:1px solid var(--line)}.sl{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .6s}.sl.on{opacity:1}.nv{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:#000a;color:#fff;font-size:26px;cursor:pointer;z-index:2}.nv.l{left:8px}.nv.r{right:8px}.dots{display:flex;gap:10px;justify-content:center;margin-top:12px}.dt{width:11px;height:11px;padding:0;border-radius:50%;border:0;background:var(--line);cursor:pointer}.dt.on{background:var(--gold-d)}.cap{text-align:center;margin-top:14px}.cap h3{margin:0 0 4px;font-size:21px}.cap p{margin:0;color:var(--muted)}.cover.img{height:auto;aspect-ratio:1/1;font-size:0}.cover{height:150px;background:linear-gradient(135deg,#214d40,#102e27) center/cover;display:grid;place-items:center;font-size:42px}.card.cvcard{padding:0;overflow:hidden}.bd{padding:16px 20px 20px}.pre{white-space:pre-line}.gal img{width:100%;border-radius:10px;margin-top:10px;display:block}#vb{transition:opacity .4s;min-height:7em}#vb.f{opacity:0}.thumbs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.th{position:relative}.th img{width:64px;height:84px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}.th button{position:absolute;top:2px;right:2px;padding:0 6px;background:var(--card)}@media(prefers-reduced-motion:reduce){.sl,#vb{transition:none}}@media(max-width:680px){.grid{grid-template-columns:1fr}.site-header{gap:12px}.logo{flex-basis:52px;height:52px}.kpis{grid-template-columns:1fr}}
+.dg{display:flex;gap:12px;align-items:center;margin-top:12px;padding:10px;border-radius:12px;background:var(--soft)}.dg img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:0 0 64px}.dg div{display:flex;flex-direction:column}.dg small{color:var(--gold-d);font-weight:700}.gdg{display:flex;gap:10px;align-items:center}.gdg img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 56px}a.btn{display:inline-block;text-decoration:none}.btn.wa{background:#1f8f4e}.cbtn{display:flex;gap:8px;flex-wrap:wrap}.contact{display:flex;gap:16px;align-items:center}.contact img{width:84px;height:84px;border-radius:50%;object-fit:cover}.vids{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.vids video{width:100%;border-radius:12px;background:#000;max-height:70vh}#cvVer{transition:opacity .4s}input[type=file]{border:1px dashed var(--gold-d)}input[type=file]::file-selector-button{background:var(--green);color:#fff;border:0;border-radius:8px;padding:10px 14px;margin-right:10px;cursor:pointer;font:inherit}.devise{display:flex;gap:16px;align-items:center}.devise img{width:84px;height:84px;border-radius:50%;object-fit:contain;background:#fff;border:1px solid var(--gold);flex:0 0 84px}.devise ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}.devise li{font-weight:700}.devise li::before{content:"✦ ";color:var(--gold-d)}</style></head><body>
+<script id="state" type="application/json">{"logo":"2572d78419d5cc83e1a37a01bee49c8c","photo":"0dc1cd2ae7ec33168ad66d70ebb68ad9","theme":"DIEU EST BON","themeText":"","annonce":"La soeur mari a perdu son pere on doit passer le voir chez elle sil vous plaît","posters":["8370b0c3b41ebc459bc657ee0e2a05b2","6c2b6632faf63dead6bd4ffe64f0a1c7"],"programme":"Lundi, 16h00 – 18h40 : Culte de maman\nMercredi, 08h00 – 14h30 : Jûne et prière\nVendredi, 15h00 – 18h00 : Prière et enseignements","versets":"« Ta parole est une lampe à mes pieds, et une lumière sur mon sentier. » | Psaume 119:105\n« Ma maison sera appelée une maison de prière pour toutes les nations. » | Marc 11:17\n« L’Éternel est mon berger : je ne manquerai de rien. » | Psaume 23:1\n« Je puis tout par celui qui me fortifie. » | Philippiens 4:13\n« Venez à moi, vous tous qui êtes fatigués et chargés, et je vous donnerai du repos. » | Matthieu 11:28\n« Ne crains rien, car je suis avec toi ; ne promène pas des regards inquiets, car je suis ton Dieu. » | Ésaïe 41:10\n« Cherchez premièrement le royaume et la justice de Dieu ; et toutes ces choses vous seront données par-dessus. » | Matthieu 6:33\n« L’Éternel est ma lumière et mon salut : de qui aurais-je crainte ? » | Psaume 27:1\n« Recommande ton sort à l’Éternel, mets en lui ta confiance, et il agira. » | Psaume 37:5\n« Priez sans cesse. » | 1 Thessaloniciens 5:17","progImgs":[],"annImgs":[],"covers":{"programme":"2572d78419d5cc83e1a37a01bee49c8c","annonce":"213cf700221ee5de7df8a2ba508668b2","verset":"6c2b6632faf63dead6bd4ffe64f0a1c7"},"offr":{"devise":"$234","rows":[{"date":"2026-12-11","dime":5800,"offrande":2500}]},"pubOff":true,"pubCh":true,"choirs":{"groups":[{"members":"Tcfrvrvtv5btb","name":"Tftvtc5g6gynyny"}]},"dgChoir":"Combattant du christ","dgName":"DG HENOCK Kim","cName":"","cPhone":"","cEmail":"","verseCovers":["431c140925e68ca9a3f925854b4585f9"],"chantreImg":"26cc8e4a566506e0e0cfa33493bf88eb","videos":["2cc7988605ed2c1bf346a7d90d440691"],"liveUrl":""}</script>
+<div id="adminbar" class="adminbar" hidden><span><b>Mode administrateur</b> — seul vous voyez ceci</span><button class="btn" id="toggleAdmin">Ouvrir l’administration</button></div>
+<div id="app">
+<header class="site-header"><div class="logo" id="logo">✦</div><div><p class="sub">Bienvenue sur la plateforme officielle</p><h1>MISSION ÉVANGÉLIQUE<br>MAISON DE PRIÈRE POUR TOUTES LES NATIONS</h1></div></header>
+<main class="container">
+<section id="admin" aria-label="Administration"></section>
+<section class="hero" id="hero"></section>
+<section id="pubDev"></section>
+<h2 class="sec">Cette semaine à l’église</h2>
+<section id="posters"></section>
+<div class="cap" id="cap" hidden=""><h3 id="theme"></h3><p id="themeText"></p></div>
+<section class="grid">
+<article class="card cvcard"><div class="cover" id="cvProg"></div><div class="bd"><h3>Programme des cultes</h3><p class="pre" id="prog">Les horaires des cultes seront communiqués ici.</p><div class="gal" id="gProg"></div><div class="dg" id="dgBox" hidden=""></div><div class="gal" id="chBox"></div></div></article>
+<article class="card cvcard"><div class="cover" id="cvAnn"></div><div class="bd"><h3>Annonces</h3><p class="pre" id="annonce">Les annonces importantes de l’église seront publiées ici.</p><div class="gal" id="gAnn"></div></div></article>
+<article class="card cvcard"><div class="cover" id="cvVer"></div><div class="bd"><h3>Verset biblique</h3><div id="vb"><p id="vt"></p><small id="vr"></small></div></div></article>
+</section>
+<section id="pubVid" hidden=""></section>
+<section id="pubOff" hidden=""></section>
+<section id="pubCh" hidden=""></section>
+<section id="pubContact" hidden=""></section>
+</main>
+<footer><p>© <span id="year"></span> MISSION ÉVANGÉLIQUE MAISON DE PRIÈRE POUR TOUTES LES NATIONS</p><small>Une plateforme au service de la communication de l’église.</small></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script id="main">
+const $=id=>document.getElementById(id);
+const APP0=$('app').innerHTML,BAR0=$('adminbar').innerHTML;
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let S={logo:'',photo:'',theme:'',themeText:'',annonce:'',posters:[],programme:'',versets:'',progImgs:[],annImgs:[],covers:{}};
+try{S=Object.assign(S,JSON.parse($('state').textContent))}catch(e){}
+$('year').textContent=new Date().getFullYear();
+function renderPublic(){
+  $('logo').innerHTML=S.logo?`<img src="/_blob/${esc(S.logo)}" alt="Logo de l’église">`:'✦';
+  $('hero').innerHTML=(S.photo?`<img src="/_blob/${esc(S.photo)}" alt="Le pasteur en prière">`:'')+
+   `<div class="txt"><h2>Que la paix et la grâce de Dieu soient avec vous.</h2><p>Retrouvez ici le thème de la semaine, les affiches, les programmes et les annonces de notre église.</p></div>`;
+  renderMore();
+}
+var slT,vT;
+const DEFAULT_V=[["« Ta parole est une lampe à mes pieds, et une lumière sur mon sentier. »","Psaume 119:105"],["« Ma maison sera appelée une maison de prière pour toutes les nations. »","Marc 11:17"],["« L’Éternel est mon berger : je ne manquerai de rien. »","Psaume 23:1"],["« Je puis tout par celui qui me fortifie. »","Philippiens 4:13"],["« Venez à moi, vous tous qui êtes fatigués et chargés, et je vous donnerai du repos. »","Matthieu 11:28"],["« Ne crains rien, car je suis avec toi ; ne promène pas des regards inquiets, car je suis ton Dieu. »","Ésaïe 41:10"],["« Cherchez premièrement le royaume et la justice de Dieu ; et toutes ces choses vous seront données par-dessus. »","Matthieu 6:33"],["« L’Éternel est ma lumière et mon salut : de qui aurais-je crainte ? »","Psaume 27:1"],["« Recommande ton sort à l’Éternel, mets en lui ta confiance, et il agira. »","Psaume 37:5"],["« Priez sans cesse. »","1 Thessaloniciens 5:17"]];
+const B='/_blob/';
+const SCENES=[['linear-gradient(135deg,#1b2a6b,#4a6fd8)','🕊️'],['linear-gradient(135deg,#7a1f0e,#e0791f)','🔥'],['linear-gradient(135deg,#173b32,#3f8f6e)','📖'],['linear-gradient(135deg,#4b2a6b,#b07ad8)','🙏'],['linear-gradient(135deg,#6b4a0e,#e0b44a)','✝️'],['linear-gradient(135deg,#0e4a6b,#4ac0e0)','✨']];
+function verseCover(i){const e=$('cvVer'),L=S.verseCovers||[];if(L.length){e.className='cover img';e.style.background='';e.style.backgroundImage=`url(${B}${L[i%L.length]})`;e.textContent=''}else{const c=SCENES[i%SCENES.length];e.className='cover';e.style.backgroundImage='';e.style.background=c[0];e.textContent=c[1]}}
+function vidAdmin(){const a=S.videos||[];return `<label>Vidéos (courtes, 35 secondes)</label><div class="thumbs">${a.map((x,i)=>`<div class="th"><video src="${B}${esc(x)}" style="width:96px;height:64px;border-radius:8px;object-fit:cover" muted playsinline preload="metadata"></video><button class="btn del" data-delv="${i}" aria-label="Retirer la vidéo">✕</button></div>`).join('')}</div><input type="file" accept="video/*" multiple id="fvd">`}
+function readText(){if($('pubO'))S.pubOff=$('pubO').checked;if($('pubC'))S.pubCh=$('pubC').checked;[['th','theme'],['tt','themeText'],['an','annonce'],['pg','programme'],['vs','versets'],['dc','dgChoir'],['dn','dgName'],['cn','cName'],['cp','cPhone'],['ce','cEmail'],['lu','liveUrl']].forEach(([i,k])=>{if($(i))S[k]=$(i).value.trim()})}
+async function upl(files,fn){files=[...files];if(!assets||!files.length)return;flash('Envoi en cours…');try{const ids=[];for(const f of files)ids.push((await assets.upload(f)).id);readText();fn(ids);renderPublic();await publishSite()}catch(e){flash('Envoi impossible : '+(e.message||e.code))}}
+function setCover(id,k,emo){const e=$(id),c=(S.covers||{})[k];e.className='cover'+(c?' img':'');e.style.backgroundImage=c?`url(/_blob/${c})`:'';e.textContent=c?'':emo}
+function renderMore(){
+  const P=S.posters||[];
+  $('posters').innerHTML=P.length?`<div class="stage">${P.map((id,i)=>`<img class="sl${i?'':' on'}" src="/_blob/${esc(id)}" alt="Affiche ${i+1} sur ${P.length}">`).join('')}${P.length>1?'<button class="nv l" aria-label="Affiche précédente">‹</button><button class="nv r" aria-label="Affiche suivante">›</button>':''}</div>`+(P.length>1?`<div class="dots">${P.map((_,i)=>`<button class="dt${i?'':' on'}" aria-label="Affiche ${i+1}"></button>`).join('')}</div>`:''):'<div class="card" style="text-align:center;color:var(--muted)">Les affiches de la semaine apparaîtront ici.</div>';
+  startSlides(P.length);
+  $('theme').textContent=S.theme||'';$('themeText').textContent=S.themeText||'';$('cap').hidden=!(S.theme||S.themeText);
+  if(S.programme)$('prog').textContent=S.programme;
+  if(S.annonce)$('annonce').textContent=S.annonce;
+  setCover('cvProg','programme','🕊️');setCover('cvAnn','annonce','📢');setCover('cvVer','verset','📜');
+  const gal=(id,a)=>{$(id).innerHTML=(a||[]).map(x=>`<img src="/_blob/${esc(x)}" alt="" loading="lazy">`).join('')};gal('gProg',S.progImgs);gal('gAnn',S.annImgs);
+  const dgb=$('dgBox');if(S.dgName||S.dgPhoto||S.dgChoir){dgb.hidden=false;dgb.innerHTML=`${S.dgPhoto?`<img src="/_blob/${esc(S.dgPhoto)}" alt="${esc(S.dgName)}">`:''}<div><small>Au chant ce dimanche</small><b>${esc(S.dgChoir||'')}</b><span>${S.dgName?'DG : '+esc(S.dgName):''}</span></div>`}else{dgb.hidden=true;dgb.innerHTML=''}
+  $('chBox').innerHTML=S.chantreImg?`<img src="${B}${esc(S.chantreImg)}" alt="Affiche des chantres" loading="lazy">`:'';
+  $('pubDev').innerHTML=`<div class="card devise">${S.logo?`<img src="${B}${esc(S.logo)}" alt="Logo MDPN">`:''}<div><h2 class="sec" style="margin:0 0 8px">Notre devise</h2><ul><li>La Prière</li><li>La Parole</li><li>La Louange</li><li>Les Sacrifices</li></ul></div></div>`;
+  const V=S.videos||[],pv=$('pubVid');const lv=String(S.liveUrl||'').trim();pv.hidden=!(V.length||lv);pv.innerHTML=(V.length||lv)?`<h2 class="sec">Suivre le culte en direct</h2>${lv?`<p><a class="btn wa" target="_blank" rel="noopener" href="${esc(lv)}">🔴 Suivre en direct</a></p>`:''}<div class="vids">${V.map(v=>`<video src="${B}${esc(v)}" controls playsinline preload="metadata"></video>`).join('')}</div>`:'';
+  const ct=$('pubContact'),ph=String(S.cPhone||'').replace(/[^\d+]/g,''),wa=ph.replace(/\D/g,''),em=String(S.cEmail||'').trim();
+  if(ph||em){ct.hidden=false;ct.innerHTML=`<h2 class="sec">Contacter le pasteur</h2><div class="card contact">${S.photo?`<img src="${B}${esc(S.photo)}" alt="">`:''}<div><h3 style="margin:0 0 8px">${esc(S.cName||'Pasteur')}</h3><div class="cbtn">${ph?`<a class="btn" href="tel:${ph}">📞 Appeler</a>`:''}${wa?`<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${wa}?text=${encodeURIComponent('Bonjour pasteur, ')}">💬 WhatsApp</a>`:''}${em?`<a class="btn alt" href="mailto:${esc(em)}">✉️ E-mail</a>`:''}</div></div></div>`}else{ct.hidden=true;ct.innerHTML=''}
+  startVerses();
+  const O=S.offr,fd=d=>new Date(d+'T12:00').toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'});
+  const po=$('pubOff');po.hidden=true;po.innerHTML='';
+  if(S.pubOff!==false&&O&&O.rows&&O.rows.length){const R=[...O.rows].sort((a,b)=>b.date.localeCompare(a.date)),dv=esc(O.devise||'$'),sm=k=>R.reduce((a,r)=>a+(+r[k]||0),0),L=R[0];
+    po.innerHTML=`<h2 class="sec">Offrandes et dîmes</h2><div class="card"><div class="kpis"><div class="kpi"><small>Dernier dimanche (${esc(fd(L.date))})</small><div>${nb((+L.offrande||0)+(+L.dime||0))} ${dv}</div></div><div class="kpi"><small>Total des offrandes</small><div>${nb(sm('offrande'))} ${dv}</div></div><div class="kpi"><small>Total des dîmes</small><div>${nb(sm('dime'))} ${dv}</div></div></div><div class="wrap"><table class="tbl"><thead><tr><th>Dimanche</th><th class="n">Offrande</th><th class="n">Dîme</th><th class="n">Total</th></tr></thead><tbody>${R.slice(0,12).map(r=>`<tr><td>${esc(fd(r.date))}</td><td class="n">${nb(r.offrande)}</td><td class="n">${nb(r.dime)}</td><td class="n">${nb((+r.offrande||0)+(+r.dime||0))}</td></tr>`).join('')}</tbody></table></div></div>`;po.hidden=false}
+  const pc=$('pubCh');pc.hidden=true;pc.innerHTML='';
+  const G=((S.choirs&&S.choirs.groups)||[]).filter(g=>g.name||g.members);
+  if(S.pubCh!==false&&G.length){pc.innerHTML=`<h2 class="sec">Chorale</h2><div class="grid">${G.map(g=>`<article class="card"><div class="gdg">${g.photo?`<img src="/_blob/${esc(g.photo)}" alt="${esc(g.dg||'DG')}">`:''}<div><h3 style="margin:0">${esc(g.name||'Chorale')}</h3>${g.dg?`<small>DG : ${esc(g.dg)}</small>`:''}</div></div><ul style="margin:6px 0 0;padding-left:18px">${String(g.members||'').split('\n').map(x=>x.trim()).filter(Boolean).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>`).join('')}</div>`;pc.hidden=false}
+}
+function imgAdmin(k,id,l){const a=S[k]||[];return `<label>${l}</label><div class="thumbs">${a.map((x,i)=>`<div class="th"><img src="/_blob/${esc(x)}" alt=""><button class="btn del" data-deli="${k}:${i}" aria-label="Retirer la photo">✕</button></div>`).join('')}</div><input type="file" accept="image/*" multiple id="${id}">`}
+function startSlides(n){clearInterval(slT);if(n<2)return;let i=0;const sl=[...document.querySelectorAll('#posters .sl')],dt=[...document.querySelectorAll('#posters .dt')];
+  const go=k=>{i=(k+n)%n;sl.forEach((s,j)=>s.classList.toggle('on',j==i));dt.forEach((d,j)=>d.classList.toggle('on',j==i))};
+  const run=()=>{clearInterval(slT);slT=setInterval(()=>go(i+1),6000)};
+  document.querySelector('#posters .l').onclick=()=>{go(i-1);run()};document.querySelector('#posters .r').onclick=()=>{go(i+1);run()};
+  dt.forEach((d,j)=>d.onclick=()=>{go(j);run()});run()}
+function startVerses(){clearInterval(vT);const t=(S.versets||'').trim();let L=t?t.split('\n').map(l=>l.split('|').map(x=>x.trim())).filter(a=>a[0]):DEFAULT_V;if(!L.length)L=DEFAULT_V;
+  let i=new Date().getDate()%L.length;const vb=$('vb'),show=()=>{$('vt').textContent=L[i][0];$('vr').textContent=L[i][1]||'';verseCover(i)};show();if(L.length<2)return;
+  vT=setInterval(()=>{vb.classList.add('f');$('cvVer').style.opacity=.2;setTimeout(()=>{i=(i+1)%L.length;show();vb.classList.remove('f');$('cvVer').style.opacity=1},400)},9000)}
+renderPublic();
+let db=null,assets=null,artifact=null,dl=null,choirs={groups:[]},offr={devise:'$',rows:[]},tab='site',busy=false;
+async function save(doc,data){
+  try{await db.doc(doc).set(data)}catch(e){}
+  if(doc==='admin/choirs')S.choirs=JSON.parse(JSON.stringify(data));else S.offr=JSON.parse(JSON.stringify(data));
+  await publishSite();
+}
+function flash(t){const m=document.querySelector('.panel.on .msg');if(m)m.textContent=t;let T=$('toast');if(!T){T=document.createElement('div');T.id='toast';T.setAttribute('role','status');T.style.cssText='position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:50;background:#173b32;color:#fff;padding:12px 14px;border-radius:12px;font:14px system-ui,sans-serif;display:none';document.body.appendChild(T)}T.textContent=t;T.style.display='block';clearTimeout(T._t);T._t=setTimeout(()=>{T.style.display='none'},6000)}
+async function publishSite(){
+  if(!artifact){flash('Publication indisponible');return}
+  readText();
+  try{sessionStorage.setItem('adm',JSON.stringify({o:$('admin').classList.contains('open'),t:tab}))}catch(e){}
+  const css=$('css').textContent,main=$('main').textContent;
+  const html='<!doctype html>\n<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#173b32"><title>Mission Évangélique Maison de Prière</title><style id="css">'+css+'</style></head><body>\n<script id="state" type="application/json">'+JSON.stringify(S).replace(/</g,'\\u003c')+'<\/script>\n<div id="adminbar" class="adminbar" hidden>'+BAR0+'</div>\n<div id="app">'+APP0+'</div>\n<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"><\/script>\n<script id="main">'+main+'<\/script>\n</body></html>';
+  flash('Publication en cours…');
+  try{await artifact.publish(html)}catch(e){const c=e.code;flash(c==='conflict'?'Le site a été mis à jour ailleurs : la page se recharge, refaites votre modification.':(c==='not_writer'||c==='not_granted')?'Modification refusée : ouvrez le site avec votre compte propriétaire.':c==='capability_disabled'?'La publication directe n’est pas disponible ici.':'Publication impossible : '+(c||e.message))}
+}
+async function upload(file,key){
+  if(!assets||!file)return;
+  flash('Envoi en cours…');
+  try{const r=await assets.upload(file);S[key]=r.id;renderPublic();await publishSite()}catch(e){flash('Envoi impossible : '+(e.message||e.code))}
+}
+function nb(n){return (Number(n)||0).toLocaleString('fr-FR')}
+function drawAdmin(){
+  const T=[['site','Site'],['chorale','Chorale'],['offrandes','Offrandes & dîmes'],['qr','Lien & QR code']];
+  let h=`<div class="card"><div class="tabs" role="tablist">${T.map(t=>`<button role="tab" data-t="${t[0]}" aria-selected="${tab==t[0]}">${t[1]}</button>`).join('')}</div>`;
+  h+=`<div class="panel ${tab=='site'?'on':''}"><label>Affiches (elles défilent automatiquement sur le site)</label><div class="thumbs">${(S.posters||[]).map((id,i)=>`<div class="th"><img src="/_blob/${esc(id)}" alt="Affiche ${i+1}"><button class="btn del" data-delp="${i}" aria-label="Retirer l’affiche ${i+1}">✕</button></div>`).join('')}</div><p style="margin:8px 0 0;font-size:13px;color:var(--muted)">${(S.posters||[]).length} affiche(s). Ajoutez-en autant que vous voulez ; les nouvelles passent en premier.</p><input type="file" accept="image/*" multiple id="fpo"><div class="row"><div><label>Logo de l’église</label><img class="prev" id="pl" alt="" ${S.logo?`src="/_blob/${esc(S.logo)}"`:''}><input type="file" accept="image/*" id="fl"></div>
+  <div><label>Photo de l’église</label><img class="prev" id="pp" alt="" ${S.photo?`src="/_blob/${esc(S.photo)}"`:''}><input type="file" accept="image/*" id="fp"></div></div>
+  <label for="th">Thème de la semaine</label><input id="th" value="${esc(S.theme)}">
+  <label for="tt">Explication du thème</label><textarea id="tt">${esc(S.themeText)}</textarea>
+  <label for="an">Annonce</label><textarea id="an">${esc(S.annonce)}</textarea>${imgAdmin('annImgs','fai','Photos des annonces (affichées sous le texte)')}
+  <label for="pg">Programme des cultes (une ligne par culte)</label><textarea id="pg">${esc(S.programme)}</textarea>${imgAdmin('progImgs','fpi','Photos du programme (affichées sous le texte)')}
+  <label>Au chant ce dimanche</label><div class="row"><div><small>Nom de la chorale</small><input id="dc" value="${esc(S.dgChoir||'')}"></div><div><small>Nom du DG</small><input id="dn" value="${esc(S.dgName||'')}"></div></div><div style="margin-top:8px"><small>Photo du DG</small><br>${S.dgPhoto?`<img class="prev" src="/_blob/${esc(S.dgPhoto)}" alt=""><br>`:''}<input type="file" accept="image/*" id="fdg"></div>
+  <label>Affiche des chantres</label>${S.chantreImg?`<img class="prev" src="${B}${esc(S.chantreImg)}" alt=""><br>`:''}<input type="file" accept="image/*" id="fch">
+  ${imgAdmin('verseCovers','fvc','Photos de couverture des versets (elles changent avec chaque verset)')}${vidAdmin()}<label for="lu">Lien du direct (【entity-Facebook¦canonical_name=Facebook】, YouTube, TikTok…)</label><input id="lu" type="url" placeholder="https://…" value="${esc(S.liveUrl||'')}">
+  <label>Contact du pasteur</label><div class="row"><div><small>Nom</small><input id="cn" value="${esc(S.cName||'')}"></div><div><small>Téléphone / WhatsApp</small><input id="cp" type="tel" placeholder="+243..." value="${esc(S.cPhone||'')}"></div><div><small>E-mail</small><input id="ce" type="email" value="${esc(S.cEmail||'')}"></div></div><small style="color:var(--muted)">Mettez le numéro avec l’indicatif du pays, par exemple +243…</small>
+  <label for="vs">Versets, un par ligne : verset | référence (ils défilent automatiquement)</label><textarea id="vs" style="min-height:150px">${esc(S.versets||DEFAULT_V.map(v=>v.join(' | ')).join('\n'))}</textarea>
+  <label>Photos de couverture</label><div class="row"><div><small>Programme</small><input type="file" accept="image/*" id="fc-programme"></div><div><small>Annonces</small><input type="file" accept="image/*" id="fc-annonce"></div><div><small>Verset</small><input type="file" accept="image/*" id="fc-verset"></div></div>
+  <p style="margin-top:12px"><button class="btn" id="saveSite">Enregistrer et publier</button></p><div class="msg"></div></div>`;
+  h+=`<div class="panel ${tab=='chorale'?'on':''}"><label style="display:flex;gap:8px;align-items:center;margin:0"><input type="checkbox" id="pubC" style="width:auto" ${S.pubCh!==false?'checked':''}> Afficher les listes sur le site (visibles par tous)</label>
+  ${choirs.groups.map((g,i)=>`<div class="grp"><label>Nom de la liste</label><input data-g="${i}" data-k="name" value="${esc(g.name)}"><label>Nom du DG</label><input data-g="${i}" data-k="dg" value="${esc(g.dg||'')}"><label>Photo du DG</label>${g.photo?`<img class="prev" src="/_blob/${esc(g.photo)}" alt=""><br>`:''}<input type="file" accept="image/*" data-gp="${i}"><label>Membres (un nom par ligne)</label><textarea data-g="${i}" data-k="members">${esc(g.members)}</textarea><p style="margin:8px 0 0"><button class="btn del" data-delg="${i}">Supprimer cette liste</button></p></div>`).join('')}
+  <p style="margin-top:12px"><button class="btn alt" id="addG">+ Nouvelle liste</button> <button class="btn" id="saveC">Enregistrer et publier</button></p><div class="msg"></div></div>`;
+  const tO=offr.rows.reduce((a,r)=>a+(+r.offrande||0),0),tD=offr.rows.reduce((a,r)=>a+(+r.dime||0),0);
+  const rows=offr.rows.map((r,i)=>[r,i]).sort((a,b)=>b[0].date.localeCompare(a[0].date));
+  h+=`<div class="panel ${tab=='offrandes'?'on':''}"><div class="row"><div><label>Date du dimanche</label><input type="date" id="od"></div><div><label>Offrande</label><input type="number" min="0" step="any" id="oo" inputmode="decimal"></div><div><label>Dîme</label><input type="number" min="0" step="any" id="odm" inputmode="decimal"></div></div>
+  <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="pubO" style="width:auto" ${S.pubOff!==false?'checked':''}> Afficher sur le site (visible par tous)</label><label>Devise</label><input id="dev" value="${esc(offr.devise)}" style="max-width:120px">
+  <p style="margin-top:12px"><button class="btn" id="addO">Ajouter ce dimanche</button></p><div class="msg"></div>
+  <div class="kpis"><div class="kpi"><small>Total offrandes</small><div>${nb(tO)} ${esc(offr.devise)}</div></div><div class="kpi"><small>Total dîmes</small><div>${nb(tD)} ${esc(offr.devise)}</div></div><div class="kpi"><small>Total général</small><div>${nb(tO+tD)} ${esc(offr.devise)}</div></div></div>
+  <div class="wrap"><table class="tbl"><thead><tr><th>Dimanche</th><th class="n">Offrande</th><th class="n">Dîme</th><th class="n">Total</th><th></th></tr></thead><tbody>${rows.map(([r,i])=>`<tr><td>${esc(new Date(r.date+'T12:00').toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'}))}</td><td class="n">${nb(r.offrande)}</td><td class="n">${nb(r.dime)}</td><td class="n">${nb((+r.offrande||0)+(+r.dime||0))}</td><td><button class="btn del" data-delo="${i}" aria-label="Supprimer">✕</button></td></tr>`).join('')||'<tr><td colspan="5" style="color:var(--muted)">Aucun dimanche enregistré pour l’instant.</td></tr>'}</tbody></table></div></div>`;
+  h+=`<div class="panel ${tab=='qr'?'on':''}"><label for="url">Adresse du site (collez ici le lien public après l’avoir partagé)</label><input id="url" value="${esc(location.href.split('#')[0])}"><p style="margin-top:12px"><button class="btn" id="mkqr">Créer le QR code</button> <button class="btn alt" id="dlqr">Télécharger</button></p><div id="qr" style="margin-top:12px"></div><div class="msg"></div></div></div>`;
+  $('admin').innerHTML=h;wire();
+}
+function wire(){
+  const A=$('admin');
+  A.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{tab=b.dataset.t;drawAdmin()});
+  $('fl').onchange=e=>upl(e.target.files,ids=>{S.logo=ids[0]});$('fp').onchange=e=>upl(e.target.files,ids=>{S.photo=ids[0]});
+  $('fpo').onchange=e=>upl(e.target.files,ids=>{S.posters=ids.concat(S.posters||[])});
+  $('fpi').onchange=e=>upl(e.target.files,ids=>{S.progImgs=(S.progImgs||[]).concat(ids)});$('fai').onchange=e=>upl(e.target.files,ids=>{S.annImgs=(S.annImgs||[]).concat(ids)});
+  A.querySelectorAll('[data-deli]').forEach(b=>b.onclick=()=>{const[k,i]=b.dataset.deli.split(':');if(!confirm('Retirer cette photo ?'))return;S[k].splice(+i,1);publishSite()});
+  ['programme','annonce','verset'].forEach(k=>{$('fc-'+k).onchange=e=>upl(e.target.files,ids=>{S.covers=S.covers||{};S.covers[k]=ids[0]})});
+  A.querySelectorAll('[data-delp]').forEach(b=>b.onclick=()=>{if(!confirm('Retirer cette affiche ?'))return;S.posters.splice(+b.dataset.delp,1);publishSite()});
+  $('saveSite').onclick=()=>publishSite();
+  $('fdg').onchange=e=>upl(e.target.files,ids=>{S.dgPhoto=ids[0]});
+  $('fvc').onchange=e=>upl(e.target.files,ids=>{S.verseCovers=(S.verseCovers||[]).concat(ids)});
+  $('fch').onchange=e=>upl(e.target.files,ids=>{S.chantreImg=ids[0]});
+  $('fvd').onchange=e=>upl(e.target.files,ids=>{S.videos=(S.videos||[]).concat(ids)});
+  A.querySelectorAll('[data-delv]').forEach(b=>b.onclick=()=>{if(!confirm('Retirer cette vidéo ?'))return;S.videos.splice(+b.dataset.delv,1);publishSite()});
+  const sync=()=>A.querySelectorAll('[data-g]').forEach(el=>{choirs.groups[+el.dataset.g][el.dataset.k]=el.value});
+  $('addG').onclick=()=>{sync();choirs.groups.push({name:'',members:'',dg:'',photo:''});drawAdmin()};
+  A.querySelectorAll('[data-gp]').forEach(el=>el.onchange=e=>{const i=+el.dataset.gp;upl(e.target.files,ids=>{sync();choirs.groups[i].photo=ids[0];S.choirs=JSON.parse(JSON.stringify(choirs));S.pubCh=$('pubC')?$('pubC').checked:S.pubCh;try{db.doc('admin/choirs').set(choirs)}catch(x){}})});
+  $('saveC').onclick=()=>{sync();save('admin/choirs',choirs)};
+  $('pubC').onchange=()=>{sync();save('admin/choirs',choirs)};$('pubO').onchange=()=>{offr.devise=$('dev').value.trim()||'$';save('admin/offerings',offr)};
+  A.querySelectorAll('[data-delg]').forEach(b=>b.onclick=async()=>{sync();if(!confirm('Supprimer cette liste ?'))return;choirs.groups.splice(+b.dataset.delg,1);await save('admin/choirs',choirs);drawAdmin()});
+  $('addO').onclick=async()=>{const d=$('od').value;if(!d){flash('Choisissez la date du dimanche');return}
+    offr.devise=$('dev').value.trim()||'$';
+    const ex=offr.rows.find(r=>r.date===d),o=+$('oo').value||0,m=+$('odm').value||0;
+    if(ex){ex.offrande=o;ex.dime=m}else offr.rows.push({date:d,offrande:o,dime:m});
+    await save('admin/offerings',offr);drawAdmin()};
+  A.querySelectorAll('[data-delo]').forEach(b=>b.onclick=async()=>{if(!confirm('Supprimer cette ligne ?'))return;offr.rows.splice(+b.dataset.delo,1);await save('admin/offerings',offr);drawAdmin()});
+  $('mkqr').onclick=()=>{const u=$('url').value.trim();if(!u||typeof qrcode==='undefined'){flash('QR indisponible');return}
+    const q=qrcode(0,'M');q.addData(u);q.make();$('qr').innerHTML=q.createSvgTag({cellSize:6,margin:0,scalable:true})};
+  $('dlqr').onclick=async()=>{const s=$('qr').innerHTML;if(!s){flash('Créez d’abord le QR code');return}
+    if(!dl){flash('Faites une capture d’écran du QR code');return}
+    try{await dl.save({filename:'qr-maison-de-priere.svg',data:s.replace('<svg','<svg xmlns="http://www.w3.org/2000/svg"')})}catch(e){}};
+}
+async function initAdmin(){
+  if(!window.claude)return;
+  let user=null;try{user=await claude.use('user')}catch(e){}
+  let owner=false;try{owner=!!(user&&await user.isOwner())}catch(e){}
+  if(!owner)return;
+  $('adminbar').hidden=false;
+  const [d,a,ar,dn]=await Promise.all(['db','assets','artifact','downloads'].map(n=>claude.use(n).catch(()=>null)));
+  db=d;assets=a;artifact=ar;dl=dn;
+  try{if(db){const c=await db.doc('admin/choirs').get();if(c.exists)choirs=Object.assign(choirs,c.data());
+    const o=await db.doc('admin/offerings').get();if(o.exists)offr=Object.assign(offr,o.data())}}catch(e){}
+  if(!choirs.groups.length&&S.choirs)choirs=Object.assign(choirs,JSON.parse(JSON.stringify(S.choirs)));if(!offr.rows.length&&S.offr)offr=Object.assign(offr,JSON.parse(JSON.stringify(S.offr)));
+  let r=null;try{r=JSON.parse(sessionStorage.getItem('adm')||'null');sessionStorage.removeItem('adm')}catch(e){}
+  if(r&&r.t)tab=r.t;
+  drawAdmin();
+  if(r&&r.o){$('admin').classList.add('open');$('toggleAdmin').textContent='Fermer l’administration';flash('Publié sur le site ✓')}
+  $('toggleAdmin').onclick=()=>{const open=$('admin').classList.toggle('open');$('toggleAdmin').textContent=open?'Fermer l’administration':'Ouvrir l’administration'};
+}
+initAdmin();
+</script>
+</body></html>
